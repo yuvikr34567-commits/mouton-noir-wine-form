@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouton Noir Wine Order Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        .logo-section {
+            flex: 1;
+        }
+
+        .decorative-line {
+            height: 2px;
+            background: linear-gradient(to right, #8B7355, #D4AF37, #8B7355);
+            margin-bottom: 10px;
+            width: 200px;
+        }
+
+        .company-name {
+            font-size: 42px;
+            font-family: 'Brush Script MT', cursive;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #8B7355;
+            font-weight: bold;
+        }
+
+        .icon-section {
+            font-size: 48px;
+        }
+
+        .wine-icon {
+            filter: grayscale(100%);
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            gap: 10px;
+        }
+
+        .form-row label {
+            font-weight: bold;
+            min-width: 150px;
+            font-size: 14px;
+        }
+
+        .form-row input {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #333;
+            font-size: 14px;
+        }
+
+        .date-label {
+            min-width: 50px !important;
+            text-align: right;
+        }
+
+        .date-input {
+            max-width: 150px;
+        }
+
+        .wine-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .wine-table th,
+        .wine-table td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .wine-table th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .wine-table td:nth-child(2),
+        .wine-table td:nth-child(3),
+        .wine-table td:nth-child(4) {
+            text-align: center;
+        }
+
+        .qty-input {
+            width: 60px;
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .totals-section {
+            margin-left: auto;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .final-total {
+            font-weight: bold;
+            font-size: 18px;
+            border-top: 2px solid #333;
+            border-bottom: 2px solid #333;
+        }
+
+        .payment-section {
+            border-top: 2px solid #333;
+            padding-top: 20px;
+        }
+
+        .payment-section h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .payment-info {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .payment-info p {
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .email-note {
+            font-size: 12px;
+            text-align: center;
+            color: #666;
+        }
+
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-section">
+                <div class="decorative-line"></div>
+                <h1 class="company-name">Mouton Noir</h1>
+                <p class="tagline">WINE GROUP</p>
+            </div>
+            <div class="icon-section">
+                <div class="wine-icon">🍷</div>
+            </div>
+        </div>
+        
+        <h2 class="form-title">WINE TASTING ORDER FORM</h2>
+        
+        <div class="form-section">
+            <div class="form-row">
+                <label>Location:</label>
+                <input type="text" id="location" value="CUIDAD DEL MAR">
+                <label class="date-label">Date:</label>
+                <input type="text" id="date" class="date-input">
+            </div>
+            
+            <div class="form-row">
+                <label>Name:</label>
+                <input type="text" id="name">
+            </div>
+            
+            <div class="form-row">
+                <label>Phone:</label>
+                <input type="text" id="phone">
+            </div>
+            
+            <div class="form-row">
+                <label>Email:</label>
+                <input type="text" id="email">
+            </div>
+            
+            <div class="form-row">
+                <label>Delivery Address:</label>
+                <input type="text" id="deliveryAddress">
+            </div>
+            
+            <div class="form-row">
+                <label>Address Description:</label>
+                <input type="text" id="addressDescription">
+            </div>
+            
+            <div class="form-row">
+                <label>Town:</label>
+                <input type="text" id="town">
+            </div>
+            
+            <div class="form-row">
+                <label>Security Guard:</label>
+                <input type="text" id="securityGuard">
+            </div>
+        </div>
+        
+        <table class="wine-table">
+            <thead>
+                <tr>
+                    <th>Wine</th>
+                    <th>Unit Price</th>
+                    <th>Qty</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mas Trucada</td>
+                    <td>$ 15.00</td>
+                    <td><input type="number" class="qty-input" data-price="15.00" min="0" value="0"></td>
+                    <td class="subtotal">$ -</td>
+                </tr>
+                <tr>
+                    <td>Callia Pinot Grigio</td>
+                    <td>$ 13.50</td>
+                    <td><input type="number" class="qty-input" data-price="13.50" min="0" value="0"></td>
+                    <td class="subtotal">$ -</td>
+                </tr>
+                <tr>
+                    <td>Altavoz Sauvignon Blanc</td>
+                    <td>$ 16.00</td>
+                    <td><input type="number" class="qty-input" data-price="16.00" min="0" value="0"></td>
+                    <td class="subtotal">$ -</td>
+                </tr>
+                <tr>
+                    <td>Navarro Pinot Noir</td>
+                    <td>$ 18.00</td>
+                    <td><input type="number" class="qty-input" data-price="18.00" min="0" value="0"></td>
+                    <td class="subtotal">$ -</td>
+                </tr>
+                <tr>
+                    <td>Lomoro Malbec</td>
+                    <td>$ 18.50</td>
+                    <td><input type="number" class="qty-input" data-price="18.50" min="0" value="0"></td>
+                    <td class="subtotal">$ -</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="totals-section">
+            <div class="total-row">
+                <span class="total-label">Subtotal:</span>
+                <span class="total-value" id="subtotal">$ -</span>
+            </div>
+            <div class="total-row">
+                <span class="total-label">IVA (21%):</span>
+                <span class="total-value" id="iva">$ -</span>
+            </div>
+            <div class="total-row final-total">
+                <span class="total-label">Total:</span>
+                <span class="total-value" id="total">$ -</span>
+            </div>
+        </div>
+        
+        <div class="payment-section">
+            <h3>Payment Options:</h3>
+            <div class="payment-info">
+                <p><strong>Distribuidora E Importador Sabores Argentinos S.A. CTA #909798654</strong></p>
+                <p><strong>SINPE:</strong> 8385-1296</p>
+                <p><strong>Zelle:</strong> 917-328-4445</p>
+                <p><strong>USD IBAN (Scotia):</strong> CR76 0102 0000 5000 2449 81</p>
+                <p><strong>CRC IBAN (BCR):</strong> CR25 0102 0000 3097 3865 47</p>
+            </div>
+            <p class="email-note"><em>Please add your email to bank transfers: MoutonNoirWine@gmail.com</em></p>
+        </div>
+    </div>
+    
+    <script>
+        // Set current date
+        function setCurrentDate() {
+            const dateInput = document.getElementById('date');
+            const today = new Date();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const year = String(today.getFullYear()).slice(-2);
+            dateInput.value = `Jan ${day}/${year}`;
+        }
+
+        // Calculate totals
+        function calculateTotals() {
+            const qtyInputs = document.querySelectorAll('.qty-input');
+            let subtotal = 0;
+            
+            qtyInputs.forEach((input, index) => {
+                const qty = parseInt(input.value) || 0;
+                const price = parseFloat(input.dataset.price);
+                const itemSubtotal = qty * price;
+                
+                const subtotalCell = document.querySelectorAll('.subtotal')[index];
+                if (itemSubtotal > 0) {
+                    subtotalCell.textContent = `$ ${itemSubtotal.toFixed(2)}`;
+                } else {
+                    subtotalCell.textContent = '$ -';
+                }
+                
+                subtotal += itemSubtotal;
+            });
+            
+            const iva = subtotal * 0.21;
+            const total = subtotal + iva;
+            
+            document.getElementById('subtotal').textContent = subtotal > 0 ? `$ ${subtotal.toFixed(2)}` : '$ -';
+            document.getElementById('iva').textContent = iva > 0 ? `$ ${iva.toFixed(2)}` : '$ -';
+            document.getElementById('total').textContent = total > 0 ? `$ ${total.toFixed(2)}` : '$ -';
+        }
+
+        // Initialize
+        setCurrentDate();
+
+        // Add event listeners to quantity inputs
+        const qtyInputs = document.querySelectorAll('.qty-input');
+        qtyInputs.forEach(input => {
+            input.addEventListener('input', calculateTotals);
+        });
+
+        // Initial calculation
+        calculateTotals();
+    </script>
+</body>
+</html>
